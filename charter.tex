@@ -1,46 +1,42 @@
 \documentclass[
 11pt, % The default document font size, options: 10pt, 11pt, 12pt
-codirector, % Uncomment to add a codirector to the title page
+%codirector, % Uncomment to add a codirector to the title page
 ]{charter} 
 
 
 
 
 % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
-\titulo{Título del proyecto} 
+\titulo{Sistema de gestión de lockers IoT} 
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
-\posgrado{Carrera de Especialización en Sistemas Embebidos} 
-%\posgrado{Carrera de Especialización en Internet de las Cosas} 
-%\posgrado{Carrera de Especialización en Intelegencia Artificial}
-%\posgrado{Maestría en Sistemas Embebidos} 
-%\posgrado{Maestría en Internet de las cosas}
+\posgrado{Carrera de Especialización en Internet de las Cosas} 
 
 % Tu nombre, se puede usar el cualquier lugar del documento con el comando \authorname
-\autor{Nombre del Autor} 
+\autor{Lic. Leandro Percivati} 
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
-\director{Nombre del Director}
-\pertenenciaDirector{pertenencia} 
+\director{Mg.Ing. Ericson Joseph Estupiñán Pineda}
+\pertenenciaDirector{Surix} 
 % FIXME:NO IMPLEMENTADO EL CODIRECTOR ni su pertenencia
-\codirector{John Doe} % para que aparezca en la portada se debe descomentar la opción codirector en el documentclass
-\pertenenciaCoDirector{FIUBA}
+%\codirector{No definido} % para que aparezca en la portada se debe descomentar la opción codirector en el documentclass
+%\pertenenciaCoDirector{ }
 
 % Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
-\cliente{Nombre del cliente}
-\empresaCliente{Empresa del cliente}
+\cliente{Ing. Sergio Starkloff}
+\empresaCliente{Surix}
 
 % Nombre y pertenencia de los jurados, se pueden usar el cualquier lugar del documento con el comando \jurunoname, \jurdosname y \jurtresname y \perteunoname, \pertedosname y \pertetresname.
-\juradoUno{Nombre y Apellido (1)}
-\pertenenciaJurUno{pertenencia (1)} 
-\juradoDos{Nombre y Apellido (2)}
-\pertenenciaJurDos{pertenencia (2)}
-\juradoTres{Nombre y Apellido (3)}
-\pertenenciaJurTres{pertenencia (3)}
+%\juradoUno{No definido}
+%\pertenenciaJurUno{ } 
+%\juradoDos{No definido}
+%\pertenenciaJurDos{ }
+%\juradoTres{No definido}
+%\pertenenciaJurTres{ }
  
-\fechaINICIO{30 de abril de 2021}		%Fecha de inicio de la cursada de GdP \fechaInicioName
-\fechaFINALPlan{18 de junio de 2021} 	%Fecha de final de cursada de GdP
-\fechaFINALTrabajo{15 de mayo de 2022}	%Fecha de defensa pública del trabajo final
+\fechaINICIO{28 de febrero de 2023}		%Fecha de inicio de la cursada de GdP \fechaInicioName
+\fechaFINALPlan{18 de abril de 2023} 	%Fecha de final de cursada de GdP
+%\fechaFINALTrabajo{15 de mayo de 2022}	%Fecha de defensa pública del trabajo final
 
 
 \begin{document}
@@ -68,9 +64,9 @@ codirector, % Uncomment to add a codirector to the title page
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
-0      & Creación del documento                                 &\fechaInicioName \\ \hline
-%1      & Se completa hasta el punto 4 inclusive                 & dd/mm/aaaa \\ \hline
-%2      & Se completa hasta el punto 7 inclusive
+0      & Creación del documento                                 & 28/02/2023 \\ \hline
+1      & Se completa hasta el punto 5 inclusive                 & 13/03/2023 \\ \hline
+2      & Se completa hasta el punto 9 inclusive 				& 21/03/2023 \\ \hline
 %		  Se puede agregar algo más \newline
 %		  En distintas líneas \newline
 %		  Así                                                    & dd/mm/aaaa \\ \hline
@@ -92,7 +88,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en \textcolor{red}{la implementación de un prototipo de un sistema de control de temperatura de un calefón}, y tendrá un presupuesto preliminar estimado de \textcolor{red}{600} h de trabajo y \textcolor{red}{\$XXX}, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en la implementación de un prototipo de un sistema de control y manipulación de lockers, y tendrá un presupuesto preliminar estimado de 600 horas de trabajo, con fecha de inicio marzo de 2023 y fecha de presentación pública en diciembre de 2023.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -116,51 +112,56 @@ Se adjunta a esta acta la planificación inicial.
 \label{sec:descripcion}
 
 
-\begin{consigna}{red} % El bloque "consigna" se usa para poner texto en rojo y dar una pequeña ayuda sobre cómo completar la sección. En cada entrega parcial deben eliminar los comandos begin y end del bloque consigna de las secciones que hayan completado.
+Uno de los efectos inmediatos de la implementación de cuarentenas fue el gran crecimiento de compras online. Con el aumento de número de personas que comenzaron a trabajar desde su casa y la obligación de estar en el hogar durante la mayor parte del día, el modelo de compra online tuvo mucho éxito ya que evitaba que el comprador tenga contacto con otras personas y se contaba con que siempre habría alguien disponible para recibir los pedidos hechos.
 
-El objetivo es que el lector en una o dos páginas entienda de qué trata el proyecto y cuáles son sus desafíos, cuál es la motivación para realizarlo y su importancia.
+Con la implementación de modelos híbridos de trabajo y la vuelta a la presencialidad de casi todas las actividades cotidianas, al modelo de compra online le surgió como desafío volver a asegurar la entrega de los pedidos ya que puede que no haya nadie para recibirlos.
+Existen distintas formas de enfrentar este desafío. Muchas empresas ofrecen a través de su sistema, el seguimiento del pedido para que haya una persona en la casa al momento que este llegue. Sin embargo, los sistemas no contemplan imprevistos tanto del comprador (tener que salir del hogar aunque sepa que el pedido está en camino), como del repartidor (no poder cumplir con la entrega en el día pactado).
 
-Se debe introducir el contexto del proyecto, el estado del arte en la temática, describir la propuesta de valor, cúal es el problema que atiende y cuál es la solución que se propone. Se debe dar una descripción funcional de la solución que incluya un diagrama en bloques.
+El objetivo de este proyecto es solucionar la problemática de requerir la presencia de una persona que reciba el pedido solicitado.
+Para cumplir con el objetivo, el sistema debe ser informativo con el comprador (notificar estado del envío cada vez que haya un cambio) y seguro (evitar robos del pedido mientras no sea recibido por el comprador).
 
-Puede ser útil incluir en esta sección la respuesta a alguna de estas preguntas:
+El caso de uso atendido por el sistema es el siguiente:
 
 \begin{itemize}
-	\item ¿Cuál es el contexto del proyecto, es un emprendimiento personal, un proyecto para una empresa, es parte del programa de vinculación con empresas del posgrado?
-	\item ¿Existen o aplican condiciones especiales al proyecto, financiamiento de algún programa público o privado, acuerdos de confidencialidad, acuerdos sobre la propiedad intelectual de los entregables u otros?
-	\item ¿Cómo se compara la solución propuesta con el estado del arte en el campo de aplicación? ¿En qué aspectos destaca?
-	\item ¿Ayuda a la explicación si se incluye un lienzo Canvas del Modelo de Negocio?
-	\item ¿En qué estado del ciclo de vida está la solución que se propone?
-	\item ¿Cuáles son las características del cliente (el adoptante de los entregables del proyecto) qué valora, qué necesita?
-	\item ¿Por dónde pasa la innovación?
+	\item El repartidor llega a destino.
+	\item Si el destinatario no se encuentra en el domicilio, el repartidor lo contacta por teléfono y le solicita el código de apertura del locker.
+	\item El destinatario abre su aplicación móvil, solicita un código aleatorio al sistema y se lo informa al repartidor.
+	\item Al recibirlo, el repartidor lo marca en el teclado del locker y este se abre, permitiendo que pueda guardar el pedido.
+	\item El destinatario llega a su hogar y solicita un código aleatorio de apertura del locker a través de la aplicación.
+	\item Al marcar el código en el teclado del locker, este se abre y el destinatario retira el pedido.
 \end{itemize}
 
-La descripción técnica-conceptual \textbf{debe incluir al menos un diagrama en bloques del sistema} y descripción funcional de la solución propuesta.
+Adicionalmente, se contempla que existan tres tipos de servicios ofrecidos:
+\begin{itemize}
+	\item Lockers personales: solo un usuario puede hacer uso del mismo.
+	\item Lockers compartidos: se considera esta opción por ejemplo para edificios, donde puede haber 6 lockers para 40 propietarios diferentes.
+	\item Lockers en alquiler: pensado para negocios que quieran ofrecer el servicio de punto de entrega.
+\end{itemize}
 
-Las figuras se deben mencionar en el texto ANTES de que aparezcan con una frase como la siguiente: ``En la Figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa que...''.  La regla es que las figuras nunca pueden ir antes de ser mencionadas en el texto, porque sino el lector no entiende por qué de pronto aparece una figura.
+El sistema contará con aplicaciones (móvil y webapp), servidor y lockers, todos conectados por internet.
+En la figura 1 se presenta el diagrama en bloques del sistema.
 
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.5\textwidth]{./Figuras/diagBloques.png}
-\caption{Diagrama en bloques del sistema}
+\includegraphics[width=1\textwidth]{./Figuras/diagrama.png}
+\caption{Diagrama en bloques del sistema.}
 \label{fig:diagBloques}
 \end{figure}
 
-\vspace{25px}
+\vspace{55px}
 
-El tamaño de la tipografía en TODAS las figuras debe ser adecuado para que NO pase lo que ocurre acá, donde el lector debe esforzarse para poder leer el texto. Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprender mejor el diagrama, preferentemente en la gama de colores pastel.
-\end{consigna}
+Por otra parte, se consideran tres roles en el sistema: usuarios, administradores y super administrador.
+Los usuarios son quienes utilizan los lockers para guardar o retirar objetos.
+En cuanto a los administradores, son aquellos que determinan qué usuarios pueden abrir los lockers. Esto permite que un mismo administrador otorgue permiso de uso de locker a diferentes usuarios en distintos momentos, como el caso de lockers compartidos o en alquiler. Además, pueden abrir los lockers.
+El super administrador es un usuario especial, con derecho a gestionar sobre usuarios, administradores y lockers.
+
+Por último, todas las acciones de los usuarios quedarán registradas para su consulta posterior. Esto se considera una parte importante del sistema ya que da el grado de seguridad que se tiene como objetivo.
+Los registros permiten poder revisar el historial de un locker en caso del robo o pérdida de un pedido.
+
+
 
 \section{2. Identificación y análisis de los interesados}
 \label{sec:interesados}
-
-\begin{consigna}{red} % este comando se debe borrar para la entrega, junto con la contraparte \end{consigna}{red} 
- 
-\textbf{Nota importante:} borrar esto y todas las consignas en color rojo antes de entregar este documento). Esto se hace eliminando el par de comandos que forman el bloque consigna, \verb!\begin{consigna}{red}! y \verb!\end{consigna}{red}! del código. 
- 
-Es inusual que una misma persona esté en más de un rol, incluso en proyectos chicos. Si se considera que una persona cumple dos o más roles, entonces solo dejarla en el rol más importante. 
-
-Por ejemplo, si una persona es Cliente pero también colabora u orienta, dejarla solo como Cliente. Si una persona es el Responsable, no debe ser colocado también como miembro del equipo.
-
 
 \begin{table}[ht]
 %\caption{Identificación de los interesados}
@@ -169,125 +170,168 @@ Por ejemplo, si una persona es Cliente pero también colabora u orienta, dejarla
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
-Auspiciante   &                   &              	&        	\\ \hline
-Cliente       & \clientename      &\empclientename	&        	\\ \hline
-Impulsor      &                   &              	&        	\\ \hline
+%Auspiciante   &                   &              	&        	\\ \hline
+Cliente       & \clientename      &\empclientename	& CTO      	\\ \hline
+%Impulsor      &                   &              	&        	\\ \hline
 Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
-Colaboradores &                   &              	&        	\\ \hline
-Orientador    & \supname	      & \pertesupname 	& Director Trabajo final \\ \hline
-Equipo        & miembro1 \newline 
-				miembro2          &              	&        	\\ \hline
-Opositores    &                   &              	&        	\\ \hline
-Usuario final &                   &              	&        	\\ \hline
+Colaboradores & Ericson Estupiñan & \empclientename & -       	\\ \hline
+Orientador    & \supname	      & - 	& Director Trabajo final \\ \hline
+%Orientador    & \supname	      & \pertesupname 	& Director Trabajo final \\ \hline
+%Equipo        & miembro1 \newline 
+%				miembro2          &              	&        	\\ \hline
+%Opositores    &                   &              	&        	\\ \hline
+Usuario final & Público general que quiera hacer uso de los lockers & - & - 	\\ \hline
 \end{tabularx}
 \end{table}
 
-El Director suele ser uno de los Orientadores.
+%El Director suele ser uno de los Orientadores.
 
-No dejar celdas vacías; si no hay nada que poner en una celda colocar un signo ``-''.
+%No dejar celdas vacías; si no hay nada que poner en una celda colocar un signo ``-''.
 
-No dejar filas vacías; si no hay nada que poner en una fila entonces eliminarla.
+%No dejar filas vacías; si no hay nada que poner en una fila entonces eliminarla.
 
-Es deseable listar a continuación las principales características de cada interesado.
+%Es deseable listar a continuación las principales características de cada interesado.
  
-Por ejemplo:
-\begin{itemize}
-	\item Auspiciante: es riguroso y exigente con la rendición de gastos. Tener mucho cuidado con esto.
-	\item Equipo: Juan Perez, suele pedir licencia porque tiene un familiar con una enfermedad. Planificar considerando esto.
-	\item Orientador: María Gómez va a poder ayudar mucho con la definición de los requerimientos.
-\end{itemize}
-
-\end{consigna} % este comando se debe borrar para la entrega, junto con la contraparte \begin{consigna}{red}
+%Por ejemplo:
+%\begin{itemize}
+%	\item Auspiciante: es riguroso y exigente con la rendición de gastos. Tener mucho cuidado con esto.
+%	\item Equipo: Juan Perez, suele pedir licencia porque tiene un familiar con una enfermedad. Planificar considerando esto.
+%	\item Orientador: María Gómez va a poder ayudar mucho con la definición de los requerimientos.
+%\end{itemize}
 
 
 
 \section{3. Propósito del proyecto}
 \label{sec:proposito}
 
-\begin{consigna}{red}
-¿Por qué se hace el proyecto? ¿Qué se quiere lograr? 
-
-Se recomienda que sea solo un párrafo que empiece diciendo ``El propósito de este proyecto es...''.
-\end{consigna}
+El propósito de este proyecto es crear un sistema de gestión de lockers que estén conectados a internet, compuesto por un servidor broker, una web y una aplicación nativa para celulares.
 
 \section{4. Alcance del proyecto}
 \label{sec:alcance}
 
-\begin{consigna}{red}
-¿Qué se incluye y que no se incluye en este proyecto?
+El proyecto incluye:
 
-Se refiere al trabajo a hacer para entregar el producto o resultado especificado. 
+\begin{itemize}
+	\item Estudio y desarrollo del protocolo MQTT, bases de datos, programación de aplicación web y multiplataforma.
+	\item Desarrollo de servidor broker que orqueste la interacción con los lockers y usuarios.
+	\item Desarrollo local de una página web que incluya alta de usuarios y acceso a datos guardados en base de datos.
+    \item Desarrollo local de aplicación multiplataforma que permita solicitar códigos aleatorios a los usuarios, otorgar permiso de uso y reserva a los usuarios por parte de los administradores, alta de usuarios e inicio de sesión.
+    \item Documentación del sistema desarrollado.
+\end{itemize}
 
-Explicitar todo lo quede comprendido dentro del alcance del proyecto.
+El proyecto no incluye:
 
-Explicitar además todo lo que no quede incluido (``El presente proyecto no incluye...'')
-
-\end{consigna}
+\begin{itemize}
+	\item Puesta en producción en el cliente final.
+	\item Contratación de servicios cloud.
+	\item Notificaciones en aplicación nativa.
+    \item Traducciones a otros idiomas.
+\end{itemize}
 
 
 \section{5. Supuestos del proyecto}
 \label{sec:supuestos}
 
-\begin{consigna}{red}
-``Para el desarrollo del presente proyecto se supone que: ...''
+Para el desarrollo del presente proyecto se supone que:
 
 \begin{itemize}
-	\item Supuesto 1
-	\item Supuesto 2...
+	\item Se dispondrá de lockers con conectividad MQTT.
+	\item Se dispondrá de computadora para instalación del servidor broker.
+	\item Se dispondrá de bases de datos.
+    \item La aplicación nativa se podrá montar sobre los sistemas operativos Android y iOS.
+    \item Se contará con asistencia de colaboradores.
+    \item Se dispondrá de 15 horas semanales dedicadas al proyecto.
+    \item Se dispondrá de licencias de software en caso de que no se utilicen programas de código libre.	
 \end{itemize}
-
-Por ejemplo, se podrían incluir supuestos respecto a disponibilidad de tiempo y recursos humanos y materiales, sobre la factibilidad técnica de distintos aspectos del proyecto, sobre otras cuestiones que sean necesarias para el éxito del proyecto como condiciones macroeconómicas o reglamentarias.
-\end{consigna}
 
 \section{6. Requerimientos}
 \label{sec:requerimientos}
 
-\begin{consigna}{red}
-Los requerimientos deben numerarse y de ser posible estar agruparlos por afinidad, por ejemplo:
 
 \begin{enumerate}
-	\item Requerimientos funcionales
+	\item Requerimientos de la base de datos:
 		\begin{enumerate}
-			\item El sistema debe...
-			\item Tal componente debe...
-			\item El usuario debe poder...
+			\item El sistema debe poseer una base de datos relacional.
+			\item La base de datos debe contener las siguientes tablas:
+				\begin{itemize}
+					\item Usuarios.
+					\item Lockers.
+					\item Ubicaciones.
+				    \item Roles.
+					\item Permisos.
+					\item Logs.
+				\end{itemize}
+			\item La base de datos debe tener datos cargados por default que permitan el correcto funcionamiento del sistema.
 		\end{enumerate}
-	\item Requerimientos de documentación
+	\item Requerimientos del servidor backend:
 		\begin{enumerate}
-			\item Requerimiento 1
-			\item Requerimiento 2 (prioridad menor)
+			\item Debe tener instalado un broker Eclipse Mosquitto con conectividad MQTT
+			\item Debe interactuar con la base de datos para la consulta y guardado de información.
+			\item Debe ofrecer endpoints con protocolo HTTP para interactuar tanto con la aplicación web como con la aplicación nativa.
 		\end{enumerate}
-	\item Requerimiento de testing...
-	\item Requerimientos de la interfaz...
-	\item Requerimientos interoperabilidad...
-	\item etc...
+	\item Requerimientos de la aplicación web:
+		\begin{enumerate}
+			\item Debe estar desarrollada en ReactJS.
+			\item Debe soportar modelo de autenticación y autorización (login).
+			\item Debe ofrecer la posibilidad de dar de alta, editar y ver usuarios del sistema.
+			\item Debe ofrecer la posibilidad de dar de alta, editar y ver perfiles de usuarios.
+			\item Debe ofrecer la posibilidad de dar de alta, editar y ver lockers del sistema.
+			\item Debe ofrecer la posibilidad de ver las solicitudes de vinculación vigentes y asignarle uno o más lockers a cada usuario.
+			\item Debe ofrecer la posibilidad de asignarle una ubicación a cada locker y/o a cada ubicación (existe posibilidad de una ubicación dentro de otra).
+		\end{enumerate}
+	\item Requerimientos de la aplicación nativa:
+		\begin{enumerate}
+			\item Debe estar desarrollada en React Native con framework Expo.
+			\item Debe soportar modelo de autenticación y autorización (login).
+			\item Debe ofrecer la posibilidad de escanear el código QR del locker solicitando la vinculación del usuario con el mismo.
+			\item Debe ofrecer la posibilidad de solicitar un código aleatorio de apertura del locker vinculado.
+			\item Debe ofrecer la posibilidad de abrir el locker vinculado.
+		\end{enumerate}
+	\item Requerimientos de la documentación:
+		\begin{enumerate}
+			\item Creación de documento con información detallada de la base de datos y de los servicios ofrecidos por la aplicación backend.
+			\item Memoria del proyecto con diagramas UML de las aplicaciones y sus interacciones.
+		\end{enumerate}		
+	\item Requerimientos de pruebas:
+		\begin{enumerate}
+			\item Se realizarán pruebas integrales con los principales casos de uso requeridos.
+		\end{enumerate}		
+	\item Requerimientos de la entrega:
+		\begin{enumerate}
+			\item Se entregará el código en repositorio GitHub o GitLab en cuenta privada de la empresa.
+		\end{enumerate}
 \end{enumerate}
 
-Leyendo los requerimientos se debe poder interpretar cómo será el proyecto y su funcionalidad.
-
-Indicar claramente cuál es la prioridad entre los distintos requerimientos y si hay requerimientos opcionales. 
-
-No olvidarse de que los requerimientos incluyen a las regulaciones y normas vigentes!!!
-
-Y al escribirlos seguir las siguientes reglas:
-\begin{itemize}
-	\item Ser breve y conciso (nadie lee cosas largas). 
-	\item Ser específico: no dejar lugar a confusiones.
-	\item Expresar los requerimientos en términos que sean cuantificables y medibles.
-\end{itemize}
-
-\end{consigna}
 
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
 
-\begin{consigna}{red}
-Descripción: En esta sección se deben incluir las historias de usuarios y su ponderación (\textit{history points}). Recordar que las historias de usuarios son descripciones cortas y simples de una característica contada desde la perspectiva de la persona que desea la nueva capacidad, generalmente un usuario o cliente del sistema. La ponderación es un número entero que representa el tamaño de la historia comparada con otras historias de similar tipo.
+Story points: se utilizará la serie de Fibonacci para estimar las historias de usuario. Cada puntaje corresponde a la suma estimada de dificultad de la historia junto al tamaño de desarrollo de la misma.
 
-El formato propuesto es: "como [rol] quiero [tal cosa] para [tal otra cosa]."
+\begin{itemize}
+	\item 1 Punto: Historias cortas y con dificultad baja.
+	\item 2 Puntos: Historias con mayor tiempo de desarrollo y dificultad baja.
+	\item 3 Puntos: Historias cortas pero con dificultad intermedia, pueden requerir investigar un tema en concreto o la conexión entre dos aplicaciones a través de una interfaz.
+	\item 5 Puntos: Historias con mayor tiempo de desarrollo y dificultad intermedia.
+	\item 8 Puntos: Historias con mucho tiempo de desarrollo pero dificultad baja o intermedia.
+	\item 13 Puntos: Historias con mucho tiempo de desarrollo y con dificultad alta.
+\end{itemize}
 
-Se debe indicar explícitamente el criterio para calcular los \textit{story points} de cada historia
-\end{consigna}
+\begin{itemize}
+	\item Como cliente quiero darme de alta en el sistema a través de la aplicación web: tiempo medio, dificultad media, 3 puntos.
+	\item Como usuario quiero identificarme en la aplicación móvil: tiempo bajo, dificultad baja, 1 punto.
+	\item Como usuario quiero identificarme en la aplicación web: tiempo bajo, dificultad baja, 1 punto.	
+	\item Como usuario quiero ver los lockers vinculados en la aplicación móvil: tiempo medio, dificultad baja, 2 puntos.
+	\item Como usuario quiero solicitar vinculación a un locker escaneando el código QR a través de la aplicación móvil: tiempo alto, dificultad media, 5 puntos.
+	\item Como usuario quiero solicitar un código aleatorio de apertura de locker a través de la aplicación móvil: tiempo medio, dificultad media, 3 puntos.
+	\item Como usuario quiero abrir locker a través de la aplicación móvil: tiempo alto, dificultad alta, 13 puntos.
+	\item Como administrador quiero vincular un usuario a un locker a través de la aplicación web: tiempo medio, dificultad media, 3 puntos.
+	\item Como super administrador quiero ver los perfiles del sistemas y sus permisos: tiempo medio, dificultad media, 3 puntos.
+	\item Como super administrador quiero editar un perfil: tiempo medio, dificultad baja, 2 puntos.	
+	\item Como super administrador quiero ver los lockers del sistema y sus ubicaciones: tiempo medio, dificultad media, 3 puntos.
+	\item Como super administrador quiero dar de alta un nuevo locker a través de la aplicación web: tiempo medio, dificultad baja, 2 puntos.	
+	\item Como super administrador quiero asignar un locker a una ubicación a través de la aplicación web: tiempo medio, dificultad baja, 2 puntos.	
+\end{itemize}
 
 \section{8. Entregables principales del proyecto}
 \label{sec:entregables}
@@ -297,12 +341,12 @@ Se debe indicar explícitamente el criterio para calcular los \textit{story poin
 Los entregables del proyecto son (ejemplo):
 
 \begin{itemize}
-	\item Manual de uso
-	\item Diagrama de circuitos esquemáticos
-	\item Código fuente del firmware
-	\item Diagrama de instalación
-	\item Informe final
-	\item etc...
+	\item Base de datos configurada con datos iniciales cargados
+	\item Servidor con conectividad MQTT hacia los lockers y aplicación backend montada con conexión a la base de datos.
+	\item Aplicación web desarrollada en React JS.
+	\item Aplicación nativa desarrollada en React Native con framework Expo.
+	\item Plan de proyecto y memoria técnica.
+	\item Código del sistema en repositorio.
 \end{itemize}
 
 \end{consigna}
@@ -310,37 +354,66 @@ Los entregables del proyecto son (ejemplo):
 \section{9. Desglose del trabajo en tareas}
 \label{sec:wbs}
 
-\begin{consigna}{red}
-El WBS debe tener relación directa o indirecta con los requerimientos.  Son todas las actividades que se harán en el proyecto para dar cumplimiento a los requerimientos. Se recomienda mostrar el WBS mediante una lista indexada:
-
 \begin{enumerate}
-\item Grupo de tareas 1
+\item Investigación inicial (70 hs):
 	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas hs)
-	\item Tarea 3 (tantas h)
+	\item Creación del plan de trabajo (10 hs).
+	\item Investigación de tecnología NestJS para desarrollo del servidor backend (10 hs).
+	\item Investigación de tecnología React JS para desarrollo de aplicación web (10 hs).
+	\item Investigación de tecnología React Native para desarrollo de aplicación nativa (20 hs).
+	\item Investigación del funcionamiento del broker Mosquitto y protocolo MQTT (20 hs).
 	\end{enumerate}
-\item Grupo de tareas 2
+\item Implementación de la base de datos (70 hs):
 	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas h)
-	\item Tarea 3 (tantas h)
+	\item Diseño de la base de datos (20 hs).
+	\item Creación de scripts de creación de tablas y cargado de información inicial (20 hs).
+	\item Instalación de la base de datos (30 hs).
 	\end{enumerate}
-\item Grupo de tareas 3
+\item Implementación del servidor web (120 hs):
 	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas h)
-	\item Tarea 3 (tantas h)
-	\item Tarea 4 (tantas h)
-	\item Tarea 5 (tantas h)
+	\item Instalación inicial y configuración del proyecto (10 hs).
+	\item Instalación del broker MQTT y conexión con lockers (40 hs).
+	\item Desarrollo de funciones para consulta y guardado de datos consumidos por las aplicaciones web y nativa (40 hs).
+	\item Implementación de protocolos de seguridad y manejo de sesión (20 hs).
+	\item Integración con servicio de mails para envío de mail de confirmación en creación de usuario (10 hs).
 	\end{enumerate}
+	
+\item Implementación de la aplicación web (95 hs):
+	\begin{enumerate}
+	\item Creación del proyecto y estructura inicial (10 hs).
+	\item Creación de página de alta de usuario (15 hs).
+	\item Creación de página de autenticación de usuario (15 hs).
+	\item Creación de página de administración de roles y perfiles(20 hs).	
+	\item Creación de página de administración de usuarios (20 hs).
+	\item Creación de página de administración de lockers y ubicaciones (15 hs).
+	\end{enumerate}
+	
+\item Implementación de la aplicación nativa (130 hs):
+	\begin{enumerate}
+	\item Creación del proyecto y estructura inicial (25 hs).
+	\item Creación de página de autenticación de usuario (20 hs).
+	\item Creación de sección de escaneo QR y solicitud de vinculación con locker (35 hs).	
+	\item Creación de página de visualización de lockers(15 hs).
+	\item Creación de sección de locker con solicitud de código aleatorio, apertura y desvinculación (35 hs).
+	\end{enumerate}	
+	
+\item Pruebas del sistema (55 hs):
+	\begin{enumerate}
+	\item Pruebas de aplicación web (10 hs).
+	\item Pruebas de aplicación nativa (10 hs).
+	\item Prueba integral con vinculación de usuario a locker y apertura desde la aplicación nativa (15 hs).	
+	\item Prueba integral con vinculación de usuario a locker y generación de código aleatorio desde la aplicación nativa (10 hs).	
+	\item Prueba integral con desvinculación de usuario a locker (10 hs).	
+	\end{enumerate}	
+	
+\item Documentación técnica del proyecto (60 hs):
+	\begin{enumerate}
+	\item Creación de informe de avance (10 hs).
+	\item Redacción de la memoria técnica del proyecto (50 hs).
+	\end{enumerate}	
 \end{enumerate}
 
 Cantidad total de horas: (tantas h)
-
-Se recomienda que no haya ninguna tarea que lleve más de 40 h. 
-
-\end{consigna}
 
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
